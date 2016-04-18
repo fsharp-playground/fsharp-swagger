@@ -102,7 +102,7 @@ type ValueController() =
 
 ```bash
 ./run.sh
-http://localhost:9000/api/value/get
+browse http://localhost:9000/swagger
 ```
 
 ## Enable Swagger UI
