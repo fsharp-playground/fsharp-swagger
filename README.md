@@ -34,7 +34,7 @@ Project "/Users/wk/Source/fsharp/fsharp-swagger/fsharp-swagger/fsharp-swagger.fs
 
 #### Fixed
 
-Convert `..` to `$(MSBuildProjectDirectory)`
+- File update `fsharp-swagger.fsproj` convert `..` to `$(MSBuildProjectDirectory)`
 
 ```xml
 <UsingTask
