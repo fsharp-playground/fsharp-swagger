@@ -1,4 +1,4 @@
-namespace fsharp-swagger
+namespace FSharpSwagger 
 
 open Owin
 open Microsoft.Owin

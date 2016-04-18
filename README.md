@@ -1,4 +1,5 @@
 Registry additions have been made in order to provide you the best web development experience.
+
 See http://bloggemdano.blogspot.com/2013/11/adding-new-items-to-pure-f-aspnet.html for more information.
 
 
@@ -10,7 +11,7 @@ yo fsharp
 
 ### Issue
 
-```fsharp
+```bash
 ╰─$ xbuild
 XBuild Engine Version 14.0
 Mono, Version 4.4.0.0
@@ -29,4 +30,22 @@ Project "/Users/wk/Source/fsharp/fsharp-swagger/fsharp-swagger/fsharp-swagger.fs
                          0 Warning(s)
                          1 Error(s)
                 Time Elapsed 00:00:00.1794100
+```
+
+### Fixed
+
+Convert `..` to `$(MSBuildProjectDirectory)`
+
+```xml
+<UsingTask
+    AssemblyFile="..\packages\MSBuild.Extension.Pack\tools\net40\MSBuild.ExtensionPack.dll"
+    TaskName="MSBuild.ExtensionPack.FileSystem.File"
+    Condition="Exists('..\packages\MSBuild.Extension.Pack\tools\net40\MSBuild.ExtensionPack.dll')" />
+```
+
+```xml
+<UsingTask
+    AssemblyFile="$(MSBuildProjectDirectory)\packages\MSBuild.Extension.Pack\tools\net40\MSBuild.ExtensionPack.dll"
+    TaskName="MSBuild.ExtensionPack.FileSystem.File"
+    Condition="Exists('$(MSBuildProjectDirectory)\packages\MSBuild.Extension.Pack\tools\net40\MSBuild.ExtensionPack.dll')" />
 ```

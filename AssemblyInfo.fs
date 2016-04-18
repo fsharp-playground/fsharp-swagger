@@ -1,4 +1,4 @@
-module fsharp-swagger.AssemblyInfo
+module FSharpSwagger.AssemblyInfo
 open System.Reflection
 open System.Runtime.CompilerServices
 
