@@ -49,3 +49,21 @@ Convert `..` to `$(MSBuildProjectDirectory)`
     TaskName="MSBuild.ExtensionPack.FileSystem.File"
     Condition="Exists('$(MSBuildProjectDirectory)\packages\MSBuild.Extension.Pack\tools\net40\MSBuild.ExtensionPack.dll')" />
 ```
+
+### Add dependencies
+
+```
+paket add nuget Microsoft.AspNet.WebApi.OwinSelfHost project fsharp-swagger.fsproj
+```
+
+### Compile and run
+
+```
+./run.sh
+```
+
+### Test
+
+```
+http://localhost:9000/api/value/get
+```
