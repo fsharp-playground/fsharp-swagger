@@ -9,7 +9,7 @@ See http://bloggemdano.blogspot.com/2013/11/adding-new-items-to-pure-f-aspnet.ht
 yo fsharp
 ```
 
-#### Issue - Not registered task
+## Issue - Not registered task
 
 ```bash
 ╰─$ xbuild
@@ -50,14 +50,14 @@ Convert `..` to `$(MSBuildProjectDirectory)`
     Condition="Exists('$(MSBuildProjectDirectory)\packages\MSBuild.Extension.Pack\tools\net40\MSBuild.ExtensionPack.dll')" />
 ```
 
-#### Add dependencies
+## Add dependencies
 
 ```
 paket add nuget Microsoft.AspNet.WebApi.OwinSelfHost project fsharp-swagger.fsproj
 paket add nuget Swashbuckle.Core project fsharp-swagger.fsproj
 ```
 
-#### Use self host
+## Use self host
 
 - File `Startup.sh`
 
@@ -87,14 +87,14 @@ type ValueController() =
         "Hello, world!"
 ```
 
-#### Compile and test
+## Compile and test
 
 ```bash
 ./run.sh
 http://localhost:9000/api/value/get
 ```
 
-#### Enable Swagger UI
+## Enable Swagger UI
 
 - File `Startup.fs`
 
@@ -105,7 +105,7 @@ static member RegisterWebApi(config: HttpConfiguration) =
     config.EnableSwagger().EnableSwaggerUi()
 ```
 
-#### Issue - TargetInvocationException
+## Issue - TargetInvocationException
 
 ```
 Time Elapsed 00:00:00.3799170
@@ -124,7 +124,7 @@ System.Reflection.TargetInvocationException: Exception has been thrown by the ta
 - https://github.com/domaindrivendev/Swashbuckle/issues/555
 
 
-#### Issue - FileNotFoundException
+## Issue - FileNotFoundException
 
 ```
 || start | http://localhost:9000
