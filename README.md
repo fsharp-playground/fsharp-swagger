@@ -59,7 +59,7 @@ paket add nuget Swashbuckle.Core project fsharp-swagger.fsproj
 
 ## Use self host
 
-- File `Startup.sh`
+- File Startup.sh
 
 ```fsharp
 [<EntryPoint>]
@@ -73,7 +73,7 @@ let main argv =
         0
 ```
 
-- File `Controllers\Api.fs`
+- File Controllers\Api.fs
 
 ```fsharp
 type Value =
@@ -105,7 +105,7 @@ http://localhost:9000/api/value/get
 
 ## Enable Swagger UI
 
-- File `Startup.fs`
+- File Startup.fs
 
 ``` fsharp
 static member RegisterWebApi(config: HttpConfiguration) =
@@ -147,7 +147,7 @@ File name: 'System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b0
 
 #### Fixed
 
-- File `fsharp-swagger.exe.config`
+- File fsharp-swagger.exe.config
 
 ```xml
 <dependentAssembly>
