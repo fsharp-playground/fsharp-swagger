@@ -76,14 +76,23 @@ let main argv =
 - File `Controllers\Api.fs`
 
 ```fsharp
-open System.Collections.Generic
-open System.Web.Http
+type Value =
+    { Key: string
+      Value: string }
 
 type ValueController() =
     inherit ApiController()
 
+    [<HttpPost>]
+    member this.DeleteValue(value: Value) =
+        value
+
+    [<HttpPost>]
+    member this.UpdateValue(value: Value) =
+        value
+
     [<HttpGet>]
-    member this.Get() =
+    member this.SayHello() =
         "Hello, world!"
 ```
 
