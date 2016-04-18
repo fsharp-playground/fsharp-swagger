@@ -9,6 +9,7 @@ open System.Web.Http
 open System.Web.Http.Owin
 open Microsoft.Owin.Diagnostics.Views
 open Microsoft.Owin.Hosting
+open Swashbuckle.Application
 
 type Params = {
     Id: RouteParameter
@@ -20,6 +21,7 @@ type Startup() =
     static member RegisterWebApi(config: HttpConfiguration) =
         // Configure routing
         config.MapHttpAttributeRoutes()
+        config.EnableSwagger().EnableSwaggerUi()
 
         // Configure serialization
         config.Formatters.XmlFormatter.UseXmlSerializer <- true
@@ -28,6 +30,7 @@ type Startup() =
                                         name = "DefaultApi",
                                         defaults = { Id = RouteParameter.Optional } ,
                                         routeTemplate = "api/{controller}/{action}/{id}" ) |> ignore
+
 
         // Additional Web API settings
 

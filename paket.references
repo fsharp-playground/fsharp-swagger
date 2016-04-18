@@ -9,3 +9,4 @@ Newtonsoft.Json
 Owin
 MSBuild.Extension.Pack
 Microsoft.AspNet.WebApi.OwinSelfHost
+Swashbuckle.Core
