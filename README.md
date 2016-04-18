@@ -9,7 +9,7 @@ See http://bloggemdano.blogspot.com/2013/11/adding-new-items-to-pure-f-aspnet.ht
 yo fsharp
 ```
 
-#### Issue - **Not registered task**
+#### Issue - Not registered task
 
 ```bash
 ╰─$ xbuild
@@ -32,7 +32,7 @@ Project "/Users/wk/Source/fsharp/fsharp-swagger/fsharp-swagger/fsharp-swagger.fs
                 Time Elapsed 00:00:00.1794100
 ```
 
-#### Fixed - **Not registered task**
+#### Fixed - Not registered task
 
 Convert `..` to `$(MSBuildProjectDirectory)`
 
@@ -105,16 +105,44 @@ static member RegisterWebApi(config: HttpConfiguration) =
     config.EnableSwagger().EnableSwaggerUi()
 ```
 
-#### Issue - **TargetInvocationException**
+#### Issue - TargetInvocationException
 
 ```
 Time Elapsed 00:00:00.3799170
 || start | http://localhost:9000
 
 Unhandled Exception:
-System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeLoadException: Failure has occurred while loadin
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeLoadException: Failure has occurred while loading a type.
+  at FSharpSwagger.Startup.RegisterWebApi (System.Web.Http.HttpConfiguration config) <0x2e472b0 + 0x00023> in <filename unknown>:0
+  at FSharpSwagger.Startup.Configuration (IAppBuilder builder) <0x7f1a78 + 0x00037> in <filename unknown>:0
+  at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (System.Reflection.MonoMethod,object,object[],System.Exception&)
+  at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) <0x1a7c600 + 0x000a1> in <filename unknown>:0
 ```
 
-#### Fixed - **TargetInvocationException**
+#### Fixed - TargetInvocationException
 
 - https://github.com/domaindrivendev/Swashbuckle/issues/555
+
+
+#### Issue - FileNotFoundException
+
+```
+|| start | http://localhost:9000
+
+Unhandled Exception:
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.IO.FileNotFoundException: Could not load file or assembly 'System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies.
+File name: 'System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
+  at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (System.Reflection.MonoMethod,object,object[],System.Exception&)
+  at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) <0x1a7c600 + 0x000a1> in <filename unknown>:0
+```
+
+#### Fixed - FileNotFoundException
+
+- File `fsharp-swagger.exe.config`
+
+```xml
+<dependentAssembly>
+  <assemblyIdentity name="System.Net.Http" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+  <bindingRedirect oldVersion="0.0.0.0-2.0.0.0" newVersion="4.0.0.0" />
+</dependentAssembly>
+```
