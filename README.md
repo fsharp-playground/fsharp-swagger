@@ -1,7 +1,7 @@
-Registry additions have been made in order to provide you the best web development experience.
 
-See http://bloggemdano.blogspot.com/2013/11/adding-new-items-to-pure-f-aspnet.html for more information.
+![](screen/swagger.png)
 
+- https://sergeytihon.wordpress.com/2015/09/06/swagger-for-f-web-apps
 
 ## Create project
 
@@ -102,7 +102,7 @@ http://localhost:9000/api/value/get
 static member RegisterWebApi(config: HttpConfiguration) =
     // Configure routing
     config.MapHttpAttributeRoutes()
-    config.EnableSwagger().EnableSwaggerUi()
+    config.EnableSwagger(fun c -> c.SingleApiVersion("v1", "My API") |> ignore).EnableSwaggerUi()
 ```
 
 ## Issue - TargetInvocationException

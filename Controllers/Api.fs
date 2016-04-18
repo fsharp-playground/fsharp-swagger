@@ -7,10 +7,22 @@ open System.Web.Http
 open Swashbuckle.SwaggerUi
 open Swashbuckle.Swagger.Annotations
 
+
+type Value =
+    { Key: string
+      Value: string }
+
 type ValueController() =
     inherit ApiController()
 
-    [<SwaggerOperation("get")>]
+    [<HttpPost>]
+    member this.DeleteValue(value: Value) =
+        value
+
+    [<HttpPost>]
+    member this.UpdateValue(value: Value) =
+        value
+
     [<HttpGet>]
-    member this.Get() =
+    member this.SayHello() =
         "Hello, world!"

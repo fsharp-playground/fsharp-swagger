@@ -38,7 +38,9 @@ type Startup() =
                                         routeTemplate = "api/{controller}/{action}/{id}" ) |> ignore
 
 
-        config.EnableSwagger().EnableSwaggerUi()
+        config.EnableSwagger(fun c -> c.SingleApiVersion("v1", "My API") |> ignore).EnableSwaggerUi()
+
+        //config.EnableSwagger().EnableSwaggerUi()
         // Additional Web API settings
 
     member __.Configuration(builder: IAppBuilder) =
