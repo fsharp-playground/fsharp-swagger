@@ -1,6 +1,8 @@
 
 ![](screen/swagger.png)
 
+## Reference
+
 - https://sergeytihon.wordpress.com/2015/09/06/swagger-for-f-web-apps
 
 ## Create project
@@ -12,7 +14,7 @@ yo fsharp
 ## Issue - Not registered task
 
 ```bash
-╰─$ xbuild
+$ xbuild
 XBuild Engine Version 14.0
 Mono, Version 4.4.0.0
 Copyright (C) 2005-2013 Various Mono authors
@@ -117,7 +119,6 @@ static member RegisterWebApi(config: HttpConfiguration) =
 ## Issue - TargetInvocationException
 
 ```
-Time Elapsed 00:00:00.3799170
 || start | http://localhost:9000
 
 Unhandled Exception:
