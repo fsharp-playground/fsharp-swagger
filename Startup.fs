@@ -15,13 +15,19 @@ type Params = {
     Id: RouteParameter
 }
 
+/// <summary>
+/// Add new student
+/// </summary>
+/// <param name="student">Student Model</param>
+/// <remarks>Insert new student</remarks>
+/// <response code="400">Bad request</response>
+/// <response code="500">Internal Server Error</response>
 [<Sealed>]
 type Startup() =
 
     static member RegisterWebApi(config: HttpConfiguration) =
         // Configure routing
         config.MapHttpAttributeRoutes()
-        config.EnableSwagger().EnableSwaggerUi()
 
         // Configure serialization
         config.Formatters.XmlFormatter.UseXmlSerializer <- true
@@ -32,6 +38,7 @@ type Startup() =
                                         routeTemplate = "api/{controller}/{action}/{id}" ) |> ignore
 
 
+        config.EnableSwagger().EnableSwaggerUi()
         // Additional Web API settings
 
     member __.Configuration(builder: IAppBuilder) =
@@ -40,7 +47,6 @@ type Startup() =
         builder.UseWebApi(config) |> ignore
         builder.UseErrorPage() |> ignore
         builder.UseWelcomePage() |> ignore
-
 
 module Program =
 

@@ -9,7 +9,7 @@ See http://bloggemdano.blogspot.com/2013/11/adding-new-items-to-pure-f-aspnet.ht
 yo fsharp
 ```
 
-#### Issue *Not registered task*
+#### Issue - **Not registered task**
 
 ```bash
 ╰─$ xbuild
@@ -32,7 +32,7 @@ Project "/Users/wk/Source/fsharp/fsharp-swagger/fsharp-swagger/fsharp-swagger.fs
                 Time Elapsed 00:00:00.1794100
 ```
 
-#### Fixed *Not registered task*
+#### Fixed - **Not registered task**
 
 Convert `..` to `$(MSBuildProjectDirectory)`
 
@@ -89,7 +89,7 @@ type ValueController() =
 
 #### Compile and test
 
-```
+```bash
 ./run.sh
 http://localhost:9000/api/value/get
 ```
@@ -98,19 +98,23 @@ http://localhost:9000/api/value/get
 
 - File `Startup.fs`
 
-```
+``` fsharp
 static member RegisterWebApi(config: HttpConfiguration) =
     // Configure routing
     config.MapHttpAttributeRoutes()
     config.EnableSwagger().EnableSwaggerUi()
 ```
 
-#### Can't run
+#### Issue - **TargetInvocationException**
 
-```bash
+```
 Time Elapsed 00:00:00.3799170
 || start | http://localhost:9000
 
 Unhandled Exception:
 System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeLoadException: Failure has occurred while loadin
 ```
+
+#### Fixed - **TargetInvocationException**
+
+- https://github.com/domaindrivendev/Swashbuckle/issues/555
