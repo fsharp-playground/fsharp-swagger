@@ -3,7 +3,7 @@ Registry additions have been made in order to provide you the best web developme
 See http://bloggemdano.blogspot.com/2013/11/adding-new-items-to-pure-f-aspnet.html for more information.
 
 
-#### Create project
+## Create project
 
 ```bash
 yo fsharp
@@ -32,7 +32,7 @@ Project "/Users/wk/Source/fsharp/fsharp-swagger/fsharp-swagger/fsharp-swagger.fs
                 Time Elapsed 00:00:00.1794100
 ```
 
-#### Fixed - Not registered task
+#### Fixed
 
 Convert `..` to `$(MSBuildProjectDirectory)`
 
@@ -119,7 +119,7 @@ System.Reflection.TargetInvocationException: Exception has been thrown by the ta
   at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) <0x1a7c600 + 0x000a1> in <filename unknown>:0
 ```
 
-#### Fixed - TargetInvocationException
+#### Fixed
 
 - https://github.com/domaindrivendev/Swashbuckle/issues/555
 
@@ -136,7 +136,7 @@ File name: 'System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b0
   at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) <0x1a7c600 + 0x000a1> in <filename unknown>:0
 ```
 
-#### Fixed - FileNotFoundException
+#### Fixed
 
 - File `fsharp-swagger.exe.config`
 
