@@ -4,13 +4,13 @@ See http://bloggemdano.blogspot.com/2013/11/adding-new-items-to-pure-f-aspnet.ht
 
 ### Create project
 
-```
+```bash
 yo fsharp
 ```
 
 ### Issue
 
-```
+```fsharp
 ╰─$ xbuild
 XBuild Engine Version 14.0
 Mono, Version 4.4.0.0
